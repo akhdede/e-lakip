@@ -14,12 +14,32 @@ header("Expires: 0");
 
 <?php
 foreach ($menu->result() as $m) {
-	echo '<h3>' . $m->nama . '</h3>';
-	echo $m->konten;
+	if($m->selesai == 'y'){
+		echo '<h3>' . $m->nama . '</h3>';
+		echo $m->konten;		
+	}
+	elseif($m->selesai == 'n'){
+		echo '<h3>' . $m->nama . '</h3>';
+		echo 'Sedang dikerjakan';
+	}
+	else{
+		echo '<h3>' . $m->nama . '</h3>';
+		echo 'Belum dikerjakan';		
+	}
 	foreach ($submenu->result() as $s) {
 		if($m->id == $s->id_menu){
-			echo '<h4>' . $s->nama . '</h4>';
-			echo $s->konten;	
+			if($s->selesai == 'y'){
+				echo '<h4>' . $s->nama . '</h4>';
+				echo $s->konten;			
+			}
+			elseif($s->selesai == 'n'){
+				echo '<h4>' . $s->nama . '</h4>';
+				echo 'Sedang dikerjakan';
+			}
+			else{
+				echo '<h4>' . $s->nama . '</h4>';
+				echo 'Belum dikerjakan';
+			}
 		}
 	}
 }  

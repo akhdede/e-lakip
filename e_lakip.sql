@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2018 at 06:32 PM
+-- Generation Time: Oct 08, 2018 at 08:58 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -42,8 +42,7 @@ CREATE TABLE `isi_menu` (
 
 INSERT INTO `isi_menu` (`id`, `konten`, `id_menu`, `tahun`, `selesai`) VALUES
 (23, '<p>1. Ketuhanan yang maha esa</p>\r\n<p>2. Kemanusiaan yang adil dan beradab</p>\r\n<p>3. Persatuan Indonesia</p>', 2, 2018, 'y'),
-(25, '<p>Ini adalah penutup</p>', 6, 2018, 'y'),
-(26, '<p style=\"margin: 0px 0px 1.25rem; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; vertical-align: baseline; color: #323232;\"><span style=\"margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;\">Bagian pembuka ini biasanya berada pada paragraf pertama hingga kedua kata pengantar. Pada bagian ini berisikan ucapan rasa syukur penulis atau tim penyusun atas selesainya makalah yang ditulis.</span></p>\r\n<p style=\"margin: 0px 0px 1.25rem; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; vertical-align: baseline; color: #323232;\"><span style=\"margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;\">Di Indonesia, lumrahnya ucapan terima kasih pada bagian pembuka ini ditujukan kepada Tuhan Yang Maha Esa. Adapun, bagi sebagian orang atau kelompok, ucapan terima kasih kepada Tuhan disesuaikan dengan agama masing-masing. Bagi yang beragama Islam, ucapannya ditujukan kepada Allah SWT, dan begitu pula bagi pemeluk agama lainnya.</span></p>\r\n<p style=\"margin: 0px 0px 1.25rem; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; vertical-align: baseline; color: #323232;\"><span style=\"margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;\">Setelah ucapan syukur dan terima kasih kepada Tuhan, biasanya dilanjutkan ucapan terima kasih kepada orang-orang yang membantu atau memiliki andil pada penulisan makalah tersebut.</span></p>\r\n<p style=\"margin: 0px 0px 1.25rem; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: \'Open Sans\', Helvetica, Arial, sans-serif; vertical-align: baseline; color: #323232;\"><span style=\"margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;\">Urutan penyebutan pihak-pihak yang bersangkutan biasanya disesuaikan dengan seberapa berpengaruhnya orang yang bersangkutan pada penyelesaian makalah. Biasanya, untuk makalah tugas sekolah, nama pertama yang disebutkan dalam ucapan terima kasih ini ialah guru kelas yang memberikan tugas. Setelah itu, baru pihak-pihak yang memang membantu pembuatan makalah.</span></p>', 1, 2018, 'y');
+(26, '<p>Bagian pembuka ini biasanya berada pada paragraf pertama hingga kedua kata pengantar. Pada bagian ini berisikan ucapan rasa syukur penulis atau tim penyusun atas selesainya makalah yang ditulis.</p>\r\n<p>Di Indonesia, lumrahnya ucapan terima kasih pada bagian pembuka ini ditujukan kepada Tuhan Yang Maha Esa. Adapun, bagi sebagian orang atau kelompok, ucapan terima kasih kepada Tuhan disesuaikan dengan agama masing-masing. Bagi yang beragama Islam, ucapannya ditujukan kepada Allah SWT, dan begitu pula bagi pemeluk agama lainnya.</p>\r\n<p>Setelah ucapan syukur dan terima kasih kepada Tuhan, biasanya dilanjutkan ucapan terima kasih kepada orang-orang yang membantu atau memiliki andil pada penulisan makalah tersebut.</p>\r\n<p>Urutan penyebutan pihak-pihak yang bersangkutan biasanya disesuaikan dengan seberapa berpengaruhnya orang yang bersangkutan pada penyelesaian makalah. Biasanya, untuk makalah tugas sekolah, nama pertama yang disebutkan dalam ucapan terima kasih ini ialah guru kelas yang memberikan tugas. Setelah itu, baru pihak-pihak yang memang membantu pembuatan makalah.</p>', 1, 2018, 'y');
 
 -- --------------------------------------------------------
 
@@ -67,7 +66,12 @@ INSERT INTO `isi_submenu` (`id`, `konten`, `id_submenu`, `tahun`, `selesai`) VAL
 (3, '<p>Ini latar belakang!</p>', 1, 2018, 'y'),
 (4, '<p>Ini dasar hukum</p>', 2, 2018, 'y'),
 (6, '<p>Ini tugas pokok dan fungsi</p>', 3, 2018, 'y'),
-(9, '<p><img src=\"http://localhost/assets/image/post-image-1538928988005.jpg\" alt=\"\" width=\"333\" height=\"390\" /></p>', 4, 2018, 'y');
+(9, '<p><img src=\"http://localhost/assets/image/post-image-1538928988005.jpg\" alt=\"\" width=\"333\" height=\"390\" /></p>', 4, 2018, 'y'),
+(11, '<p>Ini visi misi</p>', 5, 2018, 'y'),
+(13, '<p>Ini tujuan dan sasaran</p>', 6, 2018, 'y'),
+(15, '<p>arah kebijakan umum</p>', 7, 2018, 'y'),
+(17, '<p>ini rencana kinerja</p>', 8, 2018, 'y'),
+(19, '<p>ini cara mencapai tujuan dan sasaran</p>', 9, 2018, 'y');
 
 -- --------------------------------------------------------
 
@@ -119,8 +123,8 @@ INSERT INTO `submenu` (`id`, `nama`, `id_menu`, `link`) VALUES
 (5, '2.1. Visi dan Misi', 4, 'submenu/visimisi'),
 (6, '2.2. Tujuan dan Sasaran', 4, 'submenu/tujuansasaran'),
 (7, '2.3. Arah Kebijakan Umum', 4, 'submenu/arahkebijakanumum'),
-(8, '2.4. Rencana Kinerja', 4, NULL),
-(9, '2.5. Cara Pencapaian Tujuan dan Sasaran', 4, NULL),
+(8, '2.4. Rencana Kinerja', 4, 'submenu/rencanakinerja'),
+(9, '2.5. Cara Pencapaian Tujuan dan Sasaran', 4, 'submenu/caracapaitujuansasaran'),
 (10, 'A. Capaian Kinerja Tahun Sebelumnya', 5, NULL),
 (11, 'B. Evaluasi dan Analisis Capaian Kinerja', 5, NULL),
 (12, 'C. Akuntabilitas Anggaran', 5, NULL),
@@ -197,7 +201,7 @@ ALTER TABLE `isi_menu`
 -- AUTO_INCREMENT for table `isi_submenu`
 --
 ALTER TABLE `isi_submenu`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `menu`

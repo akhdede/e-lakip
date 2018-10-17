@@ -289,4 +289,100 @@ class M_submenu extends CI_Model
 	}
 
 	// End model untuk cara capai tujuan sasaran
+	
+	// Start model untuk capaian kinerja
+
+	public function capaianKinerja($where)
+	{
+		return $this->db->get_where('isi_submenu', $where);
+	}
+
+	public function addCapaianKinerja($where)
+	{
+		return $this->db->insert('isi_submenu', $where);
+	}
+
+	public function updateCapaianKinerja($konten, $where)
+	{
+		$this->db->where($where);
+		return $this->db->update('isi_submenu', $konten);		
+	}
+
+	public function deleteCapaianKinerja($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete('isi_submenu');
+	}
+
+	public function endCapaianKinerja($where, $selesai)
+	{
+		$this->db->where($where);
+		return $this->db->update('isi_submenu', $selesai);
+	}
+
+	// End model untuk capaian kinerja
+	
+	// Start model untuk evaluasi analisis
+
+	public function evaluasiAnalisis($where)
+	{
+		return $this->db->get_where('isi_submenu', $where);
+	}
+
+	public function addEvaluasiAnalisis($where)
+	{
+		return $this->db->insert('isi_submenu', $where);
+	}
+
+	public function updateEvaluasiAnalisis($konten, $where)
+	{
+		$this->db->where($where);
+		return $this->db->update('isi_submenu', $konten);		
+	}
+
+	public function deleteEvaluasiAnalisis($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete('isi_submenu');
+	}
+
+	public function endEvaluasiAnalisis($where, $selesai)
+	{
+		$this->db->where($where);
+		return $this->db->update('isi_submenu', $selesai);
+	}
+
+	// End model untuk evaluasi analisis
+	
+	// Start model untuk akuntabilitas anggaran
+
+	public function akuntabilitasAnggaran($where)
+	{
+		return $this->db->get_where('isi_submenu', $where);
+	}
+
+	public function addAkuntabilitasAnggaran($where)
+	{
+		return $this->db->insert('isi_submenu', $where);
+	}
+
+	public function updateAkuntabilitasAnggaran($konten, $where)
+	{
+		$this->db->where($where);
+		return $this->db->update('isi_submenu', $konten);		
+	}
+
+	public function deleteAkuntabilitasAnggaran($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete('isi_submenu');
+	}
+
+	public function endAkuntabilitasAnggaran($where, $selesai)
+	{
+		$this->db->where($where);
+		return $this->db->update('isi_submenu', $selesai);
+	}
+
+	// End model untuk akuntabilitas anggaran
 }

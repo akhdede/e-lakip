@@ -1941,4 +1941,644 @@ class Submenu extends CI_Controller {
 
 	// End of bab 2
 
+	// Start of bab 3
+
+	// Start of capaian kinerja
+
+	public function capaianKinerja()
+	{
+		$where = array(	'id_submenu'	=> 10,
+						'tahun'		=> $_SESSION['tahun']
+		);
+		$data = array(	'title'		=> $this->title,
+						'sidebar'	=> $this->sidebar,
+						'menu'		=> $this->m_menu->menu(),
+						'submenu'	=> $this->m_menu->submenu(),
+						'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+						'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where)						
+		);
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function addCapaianKinerja()
+	{
+		$where = array(	'konten'	=> $this->input->post('konten'),
+						'id_submenu'	=> 10,
+						'tahun'		=> $_SESSION['tahun']
+		);
+
+		$message = null;
+
+		if(isset($where['konten'])){
+			if(empty($where['konten'])){
+				$message = '<span class="text-danger">Capaian kinerja tidak boleh kosong!</span>';
+			}
+			else{
+				$add = $this->m_submenu->addCapaianKinerja($where);
+				if($add){
+					$message = '<span class="text-success">Capaian kinerja berhasil ditambahkan!</span>';
+					header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
+
+				}
+			}
+		}
+
+		$row = $this->m_submenu->capaianKinerja($where = array('id_submenu' => $where['id_submenu'], 'tahun' => $where['tahun']))->num_rows();
+
+		if ($row > 0) {
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+							'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+							'message'	=> $message
+							
+			);
+
+		}
+		else{
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/capaian_kinerja/add_capaian_kinerja',
+							'message'		=> $message						
+			);
+
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function editCapaianKinerja($id)
+	{
+		
+		$where = array('id' => $id );
+
+		$input = $this->input->post('update');
+
+		$message = null;
+
+		$row = $this->m_submenu->capaianKinerja($where)->num_rows();
+
+		if ($row > 0) {
+			if (isset($input)) {
+				$konten = array('konten' => $this->input->post('konten') );
+				if (empty($konten['konten'])) {
+					$message = '<span class="text-danger">Capaian kinerja tidak boleh kosong!</span>';
+				}
+				else{
+					$update = $this->m_submenu->updateCapaianKinerja($konten, $where);
+					if ($update) {
+						$message = '<span class="text-success">Capaian kinerja berhasil diubah!</span>';
+						header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");					
+					}				
+				}
+			}
+
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/capaian_kinerja/edit_capaian_kinerja',
+							'edit'		=> $this->m_submenu->capaianKinerja($where),
+							'message'	=> $message
+			);		
+
+			$this->load->view('layouts/wrapper', $data);
+		}
+		else{
+			redirect('submenu/capaiankinerja');
+		}
+	}
+
+	public function deleteCapaianKinerja($id)
+	{
+		$where = array('id' => $id );
+
+		$row = $this->m_submenu->capaianKinerja($where)->num_rows();
+
+		if ($row > 0) {
+			$delete = $this->m_submenu->deleteCapaianKinerja($where);
+			if ($delete) {
+				$message = '<span class="text-success">Capaian kinerja berhasil dihapus!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+								'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
+			}
+		}
+		else{
+			redirect('submenu/capaiankinerja');
+		}
+	}
+
+	public function endCapaianKinerja($id)
+	{
+		$where = array(	'id' => $id);
+
+		$row = $this->m_submenu->capaianKinerja($where)->num_rows();
+
+		if ($row > 0) {
+
+			$selesai = array('selesai' => 'y' );
+
+			$update = $this->m_submenu->endCapaianKinerja($where, $selesai);
+
+			if ($update) {
+
+				$message = '<span class="text-success">Capaian kinerja telah ditandai selesai!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+								'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
+			}
+		}
+		else{
+			redirect('submenu/capaiankinerja');
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+
+	public function unlockCapaianKinerja($id)
+	{
+		$where = array(	'id' => $id);
+
+		$row = $this->m_submenu->capaianKinerja($where)->num_rows();
+
+		if ($row > 0) {
+
+			$selesai = array('selesai' => 'n' );
+
+			$update = $this->m_submenu->endCapaianKinerja($where, $selesai);
+
+			if ($update) {
+				
+				$message = '<span class="text-success">Capaian kinerja telah dikembalikan ke status belum selesai!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+								'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
+			}
+		}
+		else{
+			redirect('submenu/capaiankinerja');
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+
+	// End of capaian kinerja
+
+	// Start of evaluasi analisis
+
+	public function evaluasiAnalisis()
+	{
+		$where = array(	'id_submenu'	=> 11,
+						'tahun'		=> $_SESSION['tahun']
+		);
+		$data = array(	'title'		=> $this->title,
+						'sidebar'	=> $this->sidebar,
+						'menu'		=> $this->m_menu->menu(),
+						'submenu'	=> $this->m_menu->submenu(),
+						'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+						'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where)						
+		);
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function addEvaluasiAnalisis()
+	{
+		$where = array(	'konten'	=> $this->input->post('konten'),
+						'id_submenu'	=> 11,
+						'tahun'		=> $_SESSION['tahun']
+		);
+
+		$message = null;
+
+		if(isset($where['konten'])){
+			if(empty($where['konten'])){
+				$message = '<span class="text-danger">Evaluasi dan analisis capaian kinerja tidak boleh kosong!</span>';
+			}
+			else{
+				$add = $this->m_submenu->addEvaluasiAnalisis($where);
+				if($add){
+					$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja berhasil ditambahkan!</span>';
+					header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
+
+				}
+			}
+		}
+
+		$row = $this->m_submenu->evaluasiAnalisis($where = array('id_submenu' => $where['id_submenu'], 'tahun' => $where['tahun']))->num_rows();
+
+		if ($row > 0) {
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+							'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+							'message'	=> $message
+							
+			);
+
+		}
+		else{
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/evaluasi_analisis/add_evaluasi_analisis',
+							'message'		=> $message						
+			);
+
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function editEvaluasiAnalisis($id)
+	{
+		
+		$where = array('id' => $id );
+
+		$input = $this->input->post('update');
+
+		$message = null;
+
+		$row = $this->m_submenu->evaluasiAnalisis($where)->num_rows();
+
+		if ($row > 0) {
+			if (isset($input)) {
+				$konten = array('konten' => $this->input->post('konten') );
+				if (empty($konten['konten'])) {
+					$message = '<span class="text-danger">Evaluasi dan analisis capaian kinerja tidak boleh kosong!</span>';
+				}
+				else{
+					$update = $this->m_submenu->updateEvaluasiAnalisis($konten, $where);
+					if ($update) {
+						$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja berhasil diubah!</span>';
+						header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");					
+					}				
+				}
+			}
+
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/evaluasi_analisis/edit_evaluasi_analisis',
+							'edit'		=> $this->m_submenu->evaluasiAnalisis($where),
+							'message'	=> $message
+			);		
+
+			$this->load->view('layouts/wrapper', $data);
+		}
+		else{
+			redirect('submenu/evaluasianalisis');
+		}
+	}
+
+	public function deleteEvaluasiAnalisis($id)
+	{
+		$where = array('id' => $id );
+
+		$row = $this->m_submenu->evaluasiAnalisis($where)->num_rows();
+
+		if ($row > 0) {
+			$delete = $this->m_submenu->deleteEvaluasiAnalisis($where);
+			if ($delete) {
+				$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja berhasil dihapus!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+								'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
+			}
+		}
+		else{
+			redirect('submenu/evaluasianalisis');
+		}
+	}
+
+	public function endEvaluasiAnalisis($id)
+	{
+		$where = array(	'id' => $id);
+
+		$row = $this->m_submenu->evaluasiAnalisis($where)->num_rows();
+
+		if ($row > 0) {
+
+			$selesai = array('selesai' => 'y' );
+
+			$update = $this->m_submenu->endEvaluasiAnalisis($where, $selesai);
+
+			if ($update) {
+
+				$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja telah ditandai selesai!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+								'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
+			}
+		}
+		else{
+			redirect('submenu/evaluasianalisis');
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+
+	public function unlockEvaluasiAnalisis($id)
+	{
+		$where = array(	'id' => $id);
+
+		$row = $this->m_submenu->evaluasiAnalisis($where)->num_rows();
+
+		if ($row > 0) {
+
+			$selesai = array('selesai' => 'n' );
+
+			$update = $this->m_submenu->endEvaluasiAnalisis($where, $selesai);
+
+			if ($update) {
+				
+				$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja telah dikembalikan ke status belum selesai!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+								'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
+			}
+		}
+		else{
+			redirect('submenu/evaluasianalisis');
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+
+	// End of evaluasi analisis
+
+	// Start of akuntabilitas anggaran
+
+	public function akuntabilitasAnggaran()
+	{
+		$where = array(	'id_submenu'	=> 12,
+						'tahun'		=> $_SESSION['tahun']
+		);
+		$data = array(	'title'		=> $this->title,
+						'sidebar'	=> $this->sidebar,
+						'menu'		=> $this->m_menu->menu(),
+						'submenu'	=> $this->m_menu->submenu(),
+						'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+						'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where)						
+		);
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function addAkuntabilitasAnggaran()
+	{
+		$where = array(	'konten'	=> $this->input->post('konten'),
+						'id_submenu'	=> 12,
+						'tahun'		=> $_SESSION['tahun']
+		);
+
+		$message = null;
+
+		if(isset($where['konten'])){
+			if(empty($where['konten'])){
+				$message = '<span class="text-danger">Akuntabilitas anggaran tidak boleh kosong!</span>';
+			}
+			else{
+				$add = $this->m_submenu->addAkuntabilitasAnggaran($where);
+				if($add){
+					$message = '<span class="text-success">Akuntabilitas anggaran berhasil ditambahkan!</span>';
+					header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
+
+				}
+			}
+		}
+
+		$row = $this->m_submenu->akuntabilitasAnggaran($where = array('id_submenu' => $where['id_submenu'], 'tahun' => $where['tahun']))->num_rows();
+
+		if ($row > 0) {
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+							'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+							'message'	=> $message
+							
+			);
+
+		}
+		else{
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/akuntabilitas_anggaran/add_akuntabilitas_anggaran',
+							'message'		=> $message						
+			);
+
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function editAkuntabilitasAnggaran($id)
+	{
+		
+		$where = array('id' => $id );
+
+		$input = $this->input->post('update');
+
+		$message = null;
+
+		$row = $this->m_submenu->akuntabilitasAnggaran($where)->num_rows();
+
+		if ($row > 0) {
+			if (isset($input)) {
+				$konten = array('konten' => $this->input->post('konten') );
+				if (empty($konten['konten'])) {
+					$message = '<span class="text-danger">Akuntabilitas anggaran tidak boleh kosong!</span>';
+				}
+				else{
+					$update = $this->m_submenu->updateAkuntabilitasAnggaran($konten, $where);
+					if ($update) {
+						$message = '<span class="text-success">Akuntabilitas anggaran berhasil diubah!</span>';
+						header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");					
+					}				
+				}
+			}
+
+			$data = array(	'title'		=> $this->title,
+							'sidebar'	=> $this->sidebar,
+							'menu'		=> $this->m_menu->menu(),
+							'submenu'	=> $this->m_menu->submenu(),
+							'isi' 		=> 'bab3/akuntabilitas_anggaran/edit_akuntabilitas_anggaran',
+							'edit'		=> $this->m_submenu->akuntabilitasAnggaran($where),
+							'message'	=> $message
+			);		
+
+			$this->load->view('layouts/wrapper', $data);
+		}
+		else{
+			redirect('submenu/akuntabilitasanggaran');
+		}
+	}
+
+	public function deleteAkuntabilitasAnggaran($id)
+	{
+		$where = array('id' => $id );
+
+		$row = $this->m_submenu->akuntabilitasAnggaran($where)->num_rows();
+
+		if ($row > 0) {
+			$delete = $this->m_submenu->deleteAkuntabilitasAnggaran($where);
+			if ($delete) {
+				$message = '<span class="text-success">Akuntabilitas anggaran berhasil dihapus!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+								'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
+			}
+		}
+		else{
+			redirect('submenu/akuntabilitasanggaran');
+		}
+	}
+
+	public function endAkuntabilitasAnggaran($id)
+	{
+		$where = array(	'id' => $id);
+
+		$row = $this->m_submenu->akuntabilitasAnggaran($where)->num_rows();
+
+		if ($row > 0) {
+
+			$selesai = array('selesai' => 'y' );
+
+			$update = $this->m_submenu->endAkuntabilitasAnggaran($where, $selesai);
+
+			if ($update) {
+
+				$message = '<span class="text-success">Akuntabilitas anggaran telah ditandai selesai!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+								'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
+			}
+		}
+		else{
+			redirect('submenu/akuntabilitasanggaran');
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+
+	public function unlockAkuntabilitasAnggaran($id)
+	{
+		$where = array(	'id' => $id);
+
+		$row = $this->m_submenu->akuntabilitasAnggaran($where)->num_rows();
+
+		if ($row > 0) {
+
+			$selesai = array('selesai' => 'n' );
+
+			$update = $this->m_submenu->endAkuntabilitasAnggaran($where, $selesai);
+
+			if ($update) {
+				
+				$message = '<span class="text-success">Akuntabilitas anggaran telah dikembalikan ke status belum selesai!</span>';
+				$data = array(	'title'		=> $this->title,
+								'sidebar'	=> $this->sidebar,
+								'menu'		=> $this->m_menu->menu(),
+								'submenu'	=> $this->m_menu->submenu(),
+								'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+								'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+								'message'	=> $message
+								
+				);
+				$this->load->view('layouts/wrapper', $data);
+				header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
+			}
+		}
+		else{
+			redirect('submenu/akuntabilitasanggaran');
+		}
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+
+	// End of akuntabilitas anggaran
+
+	// End of  bab 3
+
 }

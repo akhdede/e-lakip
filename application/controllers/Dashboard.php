@@ -29,10 +29,7 @@ class Dashboard extends CI_Controller {
 						'persen_selesai'		=> $this->m_dashboard->persenSelesai(),
 						'persen_sedang'			=> $this->m_dashboard->persenSedang(),
 						'persen_belum'			=> $this->m_dashboard->persenBelum()
-
-
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
-
 }

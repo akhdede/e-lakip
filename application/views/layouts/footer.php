@@ -1,7 +1,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?= base_url('assets/js/') ?>jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="<?= base_url('assets/js/') ?>jquery-3.3.1.slim.min.js"></script>
+    <script src="<?= base_url('assets/js/') ?>jquery.js"></script>
+    <script src="<?= base_url('assets/js/') ?>bootstrap.bundle.js"></script>
     <script src="<?= base_url('assets/tinymce/tinymce.min.js') ?>"></script>
     <script>
     tinymce.init({
@@ -39,6 +41,16 @@
     <script src="<?= base_url('assets/js/') ?>feather.min.js"></script>
     <script>
       feather.replace()
+    </script>
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })      
+    </script>
+    <script>
+      $(document).ready(function(){
+            $('.msg').fadeOut(3000);
+      })
     </script>
 </body>
 </html>
