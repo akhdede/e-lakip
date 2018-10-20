@@ -1,4 +1,4 @@
-  <h1 class="h2">Tambah Program / Kegiatan</h1>
+  <h1 class="h2">Program / Kegiatan</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
     </div>
@@ -69,7 +69,7 @@ $decode_kegiatan = json_decode($encode_kegiatan);
 	          </div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+	        <button type="reset" class="btn btn-secondary" data-dismiss="modal"><span data-feather="arrow-left"></span> Batal</button>
 	        <button type="submit" class="btn btn-primary" name="update"><span data-feather="refresh-cw"></span> Update</button>
 	      </div>
 	    </div>
@@ -102,7 +102,7 @@ $decode_kegiatan = json_decode($encode_kegiatan);
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+	        <button type="reset" class="btn btn-secondary" data-dismiss="modal"><span data-feather="arrow-left"></span> Batal</button>
 	        <button type="submit" class="btn btn-primary" name="simpan"><span data-feather="save"></span> Simpan</button>
 	      </div>
 	    </div>
@@ -152,8 +152,8 @@ $decode_kegiatan = json_decode($encode_kegiatan);
 
 			      </div>
 			      <div class="modal-footer">
-			        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-			        <button type="submit" class="btn btn-primary" name="update"><span data-feather="rotate-cw"></span> Update</button>
+			        <button type="reset" class="btn btn-secondary" data-dismiss="modal"><span data-feather="arrow-left"></span> Batal</button>
+			        <button type="submit" class="btn btn-primary" name="update"><span data-feather="refresh-cw"></span> Update</button>
 			      </div>
 			    </div>
 			  </div>

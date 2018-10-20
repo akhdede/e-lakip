@@ -22,7 +22,7 @@
   <div class="progress-bar bg-danger" role="progressbar" style="width: <?= $belum['persen'] . '%' ?>" aria-valuenow="<?= $belum['persen'] ?>" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Belum dikerjakan"><?= number_format($belum['persen'], 2) . '%' ?></div>
 </div>
 <p> </p>
-<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewDetails"><span data-feather="search" ></span> Lihat detail</button>
+<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewDetails"><span data-feather="search" ></span> Lihat Pekerjaan</button>
 
 <!-- Modal -->
 <div class="modal fade" id="viewDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -114,6 +114,4 @@
 <p>
   Untuk membuat lampiran Indikator Kinerja Utama (IKU), Rencana Kinerja Tahunan (RKT), Peerjanjian Kinerja (PK) dan Renstra, silahkan tambahkan program / kegiatan disini. 
 </p>
-<a href="<?= base_url('pk') ?>" class="btn btn-primary btn-sm"><span data-feather="plus-circle"></span> Tambah</a>
-<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewDetails"><span data-feather="search"></span> Lihat detail</button>
-
+<a href="<?= base_url('pk') ?>" class="btn btn-primary btn-sm"> <span data-feather="search"></span> Lihat Program & Kegiatan</a>

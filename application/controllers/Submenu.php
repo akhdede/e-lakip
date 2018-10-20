@@ -34,14 +34,14 @@ class Submenu extends CI_Controller {
 	public function latarBelakang()
 	{
 		$where = array(	'id_submenu'	=> 1,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab1/latar_belakang/latar_belakang',
-						'latarBelakang'	=> $this->m_submenu->latarBelakang($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab1/latar_belakang/latar_belakang',
+			'latarBelakang'	=> $this->m_submenu->latarBelakang($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -49,8 +49,8 @@ class Submenu extends CI_Controller {
 	public function addlatarBelakang()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 1,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 1,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -73,23 +73,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/latar_belakang/latar_belakang',
-							'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/latar_belakang/latar_belakang',
+				'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/latar_belakang/add_latar_belakang',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/latar_belakang/add_latar_belakang',
+				'message'		=> $message						
 			);
 
 		}
@@ -124,12 +124,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/latar_belakang/edit_latar_belakang',
-							'edit'		=> $this->m_submenu->latarBelakang($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/latar_belakang/edit_latar_belakang',
+				'edit'		=> $this->m_submenu->latarBelakang($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -150,13 +150,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Latar belakang berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/latar_belakang/latar_belakang',
-								'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/latar_belakang/latar_belakang',
+					'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/latarbelakang");
@@ -183,13 +183,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Latar belakang telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/latar_belakang/latar_belakang',
-								'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/latar_belakang/latar_belakang',
+					'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/latarbelakang");
@@ -218,13 +218,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Latar belakang telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/latar_belakang/latar_belakang',
-								'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/latar_belakang/latar_belakang',
+					'latarBelakang'	=> $this->m_submenu->latarBelakang($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/latarbelakang");
@@ -244,14 +244,14 @@ class Submenu extends CI_Controller {
 	public function dasarHukum()
 	{
 		$where = array(	'id_submenu'	=> 2,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
-						'dasarHukum'	=> $this->m_submenu->dasarHukum($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
+			'dasarHukum'	=> $this->m_submenu->dasarHukum($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -259,8 +259,8 @@ class Submenu extends CI_Controller {
 	public function addDasarHukum()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 2,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 2,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -283,23 +283,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
-							'dasarHukum'	=> $this->m_submenu->dasarHukum($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
+				'dasarHukum'	=> $this->m_submenu->dasarHukum($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/dasar_hukum/add_dasar_hukum',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/dasar_hukum/add_dasar_hukum',
+				'message'		=> $message						
 			);
 
 		}
@@ -334,12 +334,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/dasar_hukum/edit_dasar_hukum',
-							'edit'		=> $this->m_submenu->DasarHukum($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/dasar_hukum/edit_dasar_hukum',
+				'edit'		=> $this->m_submenu->DasarHukum($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -360,13 +360,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Dasar hukum berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
-								'dasarHukum'	=> $this->m_submenu->dasarHukum($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
+					'dasarHukum'	=> $this->m_submenu->dasarHukum($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/dasarHukum");
@@ -393,13 +393,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Dasar hukum telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
-								'dasarHukum'	=> $this->m_submenu->dasarHukum($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
+					'dasarHukum'	=> $this->m_submenu->dasarHukum($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/dasarHukum");
@@ -429,13 +429,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Dasar hukum telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
-								'dasarHukum'	=> $this->m_submenu->DasarHukum($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/dasar_hukum/dasar_hukum',
+					'dasarHukum'	=> $this->m_submenu->DasarHukum($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/DasarHukum");
@@ -456,14 +456,14 @@ class Submenu extends CI_Controller {
 	public function tupoksi()
 	{
 		$where = array(	'id_submenu'	=> 3,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab1/tupoksi/tupoksi',
-						'tupoksi'	=> $this->m_submenu->tupoksi($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab1/tupoksi/tupoksi',
+			'tupoksi'	=> $this->m_submenu->tupoksi($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -471,8 +471,8 @@ class Submenu extends CI_Controller {
 	public function addTupoksi()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 3,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 3,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -495,23 +495,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/tupoksi/tupoksi',
-							'tupoksi'	=> $this->m_submenu->tupoksi($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/tupoksi/tupoksi',
+				'tupoksi'	=> $this->m_submenu->tupoksi($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/tupoksi/add_tupoksi',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/tupoksi/add_tupoksi',
+				'message'		=> $message						
 			);
 
 		}
@@ -546,12 +546,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/tupoksi/edit_tupoksi',
-							'edit'		=> $this->m_submenu->tupoksi($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/tupoksi/edit_tupoksi',
+				'edit'		=> $this->m_submenu->tupoksi($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -572,13 +572,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Tupoksi berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/tupoksi/tupoksi',
-								'tupoksi'	=> $this->m_submenu->tupoksi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/tupoksi/tupoksi',
+					'tupoksi'	=> $this->m_submenu->tupoksi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/tupoksi");
@@ -605,13 +605,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Tupoksi telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/tupoksi/tupoksi',
-								'tupoksi'	=> $this->m_submenu->tupoksi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/tupoksi/tupoksi',
+					'tupoksi'	=> $this->m_submenu->tupoksi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/tupoksi");
@@ -641,13 +641,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Tupoksi telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/tupoksi/tupoksi',
-								'tupoksi'	=> $this->m_submenu->tupoksi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/tupoksi/tupoksi',
+					'tupoksi'	=> $this->m_submenu->tupoksi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/tupoksi");
@@ -668,14 +668,14 @@ class Submenu extends CI_Controller {
 	public function strukturOrganisasi()
 	{
 		$where = array(	'id_submenu'	=> 4,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
-						'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
+			'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -683,8 +683,8 @@ class Submenu extends CI_Controller {
 	public function addStrukturOrganisasi()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 4,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 4,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -707,23 +707,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
-							'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
+				'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/struktur_organisasi/add_struktur_organisasi',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/struktur_organisasi/add_struktur_organisasi',
+				'message'		=> $message						
 			);
 
 		}
@@ -758,12 +758,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab1/struktur_organisasi/edit_struktur_organisasi',
-							'edit'		=> $this->m_submenu->strukturOrganisasi($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab1/struktur_organisasi/edit_struktur_organisasi',
+				'edit'		=> $this->m_submenu->strukturOrganisasi($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -784,13 +784,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Struktur organisasi berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
-								'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
+					'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/strukturorganisasi");
@@ -817,13 +817,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Struktur organisasi telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
-								'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
+					'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/strukturorganisasi");
@@ -853,13 +853,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Struktur organisasi telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
-								'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab1/struktur_organisasi/struktur_organisasi',
+					'strukturOrganisasi'	=> $this->m_submenu->strukturOrganisasi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/strukturorganisasi");
@@ -884,14 +884,14 @@ class Submenu extends CI_Controller {
 	public function visiMisi()
 	{
 		$where = array(	'id_submenu'	=> 5,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab2/visi_misi/visi_misi',
-						'visiMisi'	=> $this->m_submenu->visiMisi($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab2/visi_misi/visi_misi',
+			'visiMisi'	=> $this->m_submenu->visiMisi($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -899,8 +899,8 @@ class Submenu extends CI_Controller {
 	public function addVisiMisi()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 5,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 5,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -923,23 +923,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/visi_misi/visi_misi',
-							'visiMisi'	=> $this->m_submenu->visiMisi($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/visi_misi/visi_misi',
+				'visiMisi'	=> $this->m_submenu->visiMisi($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/visi_misi/add_visi_misi',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/visi_misi/add_visi_misi',
+				'message'		=> $message						
 			);
 
 		}
@@ -974,12 +974,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/visi_misi/edit_visi_misi',
-							'edit'		=> $this->m_submenu->visiMisi($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/visi_misi/edit_visi_misi',
+				'edit'		=> $this->m_submenu->visiMisi($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -1000,13 +1000,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Visi misi berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/visi_misi/visi_misi',
-								'visiMisi'	=> $this->m_submenu->visiMisi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/visi_misi/visi_misi',
+					'visiMisi'	=> $this->m_submenu->visiMisi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/visimisi");
@@ -1033,13 +1033,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Visi misi telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/visi_misi/visi_misi',
-								'visiMisi'	=> $this->m_submenu->visiMisi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/visi_misi/visi_misi',
+					'visiMisi'	=> $this->m_submenu->visiMisi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/visimisi");
@@ -1069,13 +1069,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Visi misi telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/visi_misi/visi_misi',
-								'visiMisi'	=> $this->m_submenu->visiMisi($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/visi_misi/visi_misi',
+					'visiMisi'	=> $this->m_submenu->visiMisi($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/visimisi");
@@ -1096,14 +1096,14 @@ class Submenu extends CI_Controller {
 	public function tujuanSasaran()
 	{
 		$where = array(	'id_submenu'	=> 6,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
-						'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
+			'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -1111,8 +1111,8 @@ class Submenu extends CI_Controller {
 	public function addTujuanSasaran()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 6,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 6,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -1135,23 +1135,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
-							'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
+				'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/tujuan_sasaran/add_tujuan_sasaran',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/tujuan_sasaran/add_tujuan_sasaran',
+				'message'		=> $message						
 			);
 
 		}
@@ -1186,12 +1186,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/tujuan_sasaran/edit_tujuan_sasaran',
-							'edit'		=> $this->m_submenu->tujuanSasaran($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/tujuan_sasaran/edit_tujuan_sasaran',
+				'edit'		=> $this->m_submenu->tujuanSasaran($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -1212,13 +1212,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Tujuan sasaran berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
-								'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
+					'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/tujuansasaran");
@@ -1245,13 +1245,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Tujuan sasaran telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
-								'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
+					'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/tujuansasaran");
@@ -1281,13 +1281,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Tujuan sasaran telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
-								'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/tujuan_sasaran/tujuan_sasaran',
+					'tujuanSasaran'	=> $this->m_submenu->tujuanSasaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/tujuansasaran");
@@ -1308,14 +1308,14 @@ class Submenu extends CI_Controller {
 	public function arahKebijakanUmum()
 	{
 		$where = array(	'id_submenu'	=> 7,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
-						'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
+			'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -1323,8 +1323,8 @@ class Submenu extends CI_Controller {
 	public function addArahKebijakanUmum()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 7,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 7,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -1347,23 +1347,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
-							'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
+				'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/arah_kebijakan_umum/add_arah_kebijakan_umum',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/arah_kebijakan_umum/add_arah_kebijakan_umum',
+				'message'		=> $message						
 			);
 
 		}
@@ -1398,12 +1398,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/arah_kebijakan_umum/edit_arah_kebijakan_umum',
-							'edit'		=> $this->m_submenu->arahKebijakanUmum($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/arah_kebijakan_umum/edit_arah_kebijakan_umum',
+				'edit'		=> $this->m_submenu->arahKebijakanUmum($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -1424,13 +1424,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Arah kebijakan umum berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
-								'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
+					'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/arahkebijakanumum");
@@ -1457,13 +1457,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Arah kebijakan umum telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
-								'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
+					'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/arahkebijakanumum");
@@ -1493,13 +1493,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Arah kebijakan umum telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
-								'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/arah_kebijakan_umum/arah_kebijakan_umum',
+					'arahKebijakanUmum'	=> $this->m_submenu->arahKebijakanUmum($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/arahkebijakanumum");
@@ -1520,14 +1520,14 @@ class Submenu extends CI_Controller {
 	public function rencanaKinerja()
 	{
 		$where = array(	'id_submenu'	=> 8,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
-						'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
+			'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -1535,8 +1535,8 @@ class Submenu extends CI_Controller {
 	public function addRencanaKinerja()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 8,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 8,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -1559,23 +1559,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
-							'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
+				'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/rencana_kinerja/add_rencana_kinerja',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/rencana_kinerja/add_rencana_kinerja',
+				'message'		=> $message						
 			);
 
 		}
@@ -1610,12 +1610,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/rencana_kinerja/edit_rencana_kinerja',
-							'edit'		=> $this->m_submenu->rencanaKinerja($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/rencana_kinerja/edit_rencana_kinerja',
+				'edit'		=> $this->m_submenu->rencanaKinerja($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -1636,13 +1636,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Rencana kinerja berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
-								'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
+					'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/rencanakinerja");
@@ -1669,13 +1669,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Rencana kinerja telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
-								'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
+					'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/rencanakinerja");
@@ -1705,13 +1705,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Rencana kinerja telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
-								'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/rencana_kinerja/rencana_kinerja',
+					'rencanaKinerja'	=> $this->m_submenu->rencanaKinerja($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/rencanakinerja");
@@ -1732,14 +1732,14 @@ class Submenu extends CI_Controller {
 	public function caraCapaiTujuanSasaran()
 	{
 		$where = array(	'id_submenu'	=> 9,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
-						'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
+			'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -1747,8 +1747,8 @@ class Submenu extends CI_Controller {
 	public function addCaraCapaiTujuanSasaran()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 9,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 9,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -1771,23 +1771,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
-							'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
+				'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/add_cara_capai_tujuan_sasaran',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/add_cara_capai_tujuan_sasaran',
+				'message'		=> $message						
 			);
 
 		}
@@ -1822,12 +1822,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/edit_cara_capai_tujuan_sasaran',
-							'edit'		=> $this->m_submenu->caraCapaiTujuanSasaran($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/edit_cara_capai_tujuan_sasaran',
+				'edit'		=> $this->m_submenu->caraCapaiTujuanSasaran($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -1848,13 +1848,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Cara capai tujuan sasaran berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
-								'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
+					'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/caracapaitujuansasaran");
@@ -1881,13 +1881,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Cara capai tujuan sasaran telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
-								'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
+					'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/caracapaitujuansasaran");
@@ -1917,13 +1917,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Cara capai tujuan sasaran telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
-								'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab2/cara_capai_tujuan_sasaran/cara_capai_tujuan_sasaran',
+					'caraCapaiTujuanSasaran'	=> $this->m_submenu->caraCapaiTujuanSasaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/caracapaitujuansasaran");
@@ -1948,14 +1948,14 @@ class Submenu extends CI_Controller {
 	public function capaianKinerja()
 	{
 		$where = array(	'id_submenu'	=> 10,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
-						'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+			'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -1963,8 +1963,8 @@ class Submenu extends CI_Controller {
 	public function addCapaianKinerja()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 10,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 10,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -1987,23 +1987,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
-							'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+				'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/capaian_kinerja/add_capaian_kinerja',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/capaian_kinerja/add_capaian_kinerja',
+				'message'		=> $message						
 			);
 
 		}
@@ -2038,12 +2038,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/capaian_kinerja/edit_capaian_kinerja',
-							'edit'		=> $this->m_submenu->capaianKinerja($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/capaian_kinerja/edit_capaian_kinerja',
+				'edit'		=> $this->m_submenu->capaianKinerja($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -2064,13 +2064,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Capaian kinerja berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
-								'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+					'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
@@ -2097,13 +2097,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Capaian kinerja telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
-								'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+					'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
@@ -2133,13 +2133,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Capaian kinerja telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
-								'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/capaian_kinerja/capaian_kinerja',
+					'capaianKinerja'	=> $this->m_submenu->capaianKinerja($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/capaiankinerja");
@@ -2160,14 +2160,14 @@ class Submenu extends CI_Controller {
 	public function evaluasiAnalisis()
 	{
 		$where = array(	'id_submenu'	=> 11,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
-						'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+			'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -2175,8 +2175,8 @@ class Submenu extends CI_Controller {
 	public function addEvaluasiAnalisis()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 11,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 11,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -2199,23 +2199,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
-							'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+				'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/evaluasi_analisis/add_evaluasi_analisis',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/evaluasi_analisis/add_evaluasi_analisis',
+				'message'		=> $message						
 			);
 
 		}
@@ -2250,12 +2250,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/evaluasi_analisis/edit_evaluasi_analisis',
-							'edit'		=> $this->m_submenu->evaluasiAnalisis($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/evaluasi_analisis/edit_evaluasi_analisis',
+				'edit'		=> $this->m_submenu->evaluasiAnalisis($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -2276,13 +2276,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
-								'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+					'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
@@ -2309,13 +2309,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
-								'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+					'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
@@ -2345,13 +2345,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Evaluasi dan analisis capaian kinerja telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
-								'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/evaluasi_analisis/evaluasi_analisis',
+					'evaluasiAnalisis'	=> $this->m_submenu->evaluasiAnalisis($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/evaluasianalisis");
@@ -2372,14 +2372,14 @@ class Submenu extends CI_Controller {
 	public function akuntabilitasAnggaran()
 	{
 		$where = array(	'id_submenu'	=> 12,
-						'tahun'		=> $_SESSION['tahun']
+			'tahun'		=> $_SESSION['tahun']
 		);
 		$data = array(	'title'		=> $this->title,
-						'sidebar'	=> $this->sidebar,
-						'menu'		=> $this->m_menu->menu(),
-						'submenu'	=> $this->m_menu->submenu(),
-						'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
-						'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where)						
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+			'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where)						
 		);
 		$this->load->view('layouts/wrapper', $data);
 	}
@@ -2387,8 +2387,8 @@ class Submenu extends CI_Controller {
 	public function addAkuntabilitasAnggaran()
 	{
 		$where = array(	'konten'	=> $this->input->post('konten'),
-						'id_submenu'	=> 12,
-						'tahun'		=> $_SESSION['tahun']
+			'id_submenu'	=> 12,
+			'tahun'		=> $_SESSION['tahun']
 		);
 
 		$message = null;
@@ -2411,23 +2411,23 @@ class Submenu extends CI_Controller {
 
 		if ($row > 0) {
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
-							'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
-							'message'	=> $message
-							
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+				'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+				'message'	=> $message
+
 			);
 
 		}
 		else{
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/akuntabilitas_anggaran/add_akuntabilitas_anggaran',
-							'message'		=> $message						
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/akuntabilitas_anggaran/add_akuntabilitas_anggaran',
+				'message'		=> $message						
 			);
 
 		}
@@ -2462,12 +2462,12 @@ class Submenu extends CI_Controller {
 			}
 
 			$data = array(	'title'		=> $this->title,
-							'sidebar'	=> $this->sidebar,
-							'menu'		=> $this->m_menu->menu(),
-							'submenu'	=> $this->m_menu->submenu(),
-							'isi' 		=> 'bab3/akuntabilitas_anggaran/edit_akuntabilitas_anggaran',
-							'edit'		=> $this->m_submenu->akuntabilitasAnggaran($where),
-							'message'	=> $message
+				'sidebar'	=> $this->sidebar,
+				'menu'		=> $this->m_menu->menu(),
+				'submenu'	=> $this->m_menu->submenu(),
+				'isi' 		=> 'bab3/akuntabilitas_anggaran/edit_akuntabilitas_anggaran',
+				'edit'		=> $this->m_submenu->akuntabilitasAnggaran($where),
+				'message'	=> $message
 			);		
 
 			$this->load->view('layouts/wrapper', $data);
@@ -2488,13 +2488,13 @@ class Submenu extends CI_Controller {
 			if ($delete) {
 				$message = '<span class="text-success">Akuntabilitas anggaran berhasil dihapus!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
-								'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+					'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
@@ -2521,13 +2521,13 @@ class Submenu extends CI_Controller {
 
 				$message = '<span class="text-success">Akuntabilitas anggaran telah ditandai selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
-								'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+					'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
@@ -2557,13 +2557,13 @@ class Submenu extends CI_Controller {
 				
 				$message = '<span class="text-success">Akuntabilitas anggaran telah dikembalikan ke status belum selesai!</span>';
 				$data = array(	'title'		=> $this->title,
-								'sidebar'	=> $this->sidebar,
-								'menu'		=> $this->m_menu->menu(),
-								'submenu'	=> $this->m_menu->submenu(),
-								'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
-								'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
-								'message'	=> $message
-								
+					'sidebar'	=> $this->sidebar,
+					'menu'		=> $this->m_menu->menu(),
+					'submenu'	=> $this->m_menu->submenu(),
+					'isi' 		=> 'bab3/akuntabilitas_anggaran/akuntabilitas_anggaran',
+					'akuntabilitasAnggaran'	=> $this->m_submenu->akuntabilitasAnggaran($where),
+					'message'	=> $message
+
 				);
 				$this->load->view('layouts/wrapper', $data);
 				header("Refresh: 1;url=". base_url()."submenu/akuntabilitasanggaran");
@@ -2581,4 +2581,143 @@ class Submenu extends CI_Controller {
 
 	// End of  bab 3
 
+	// Start of lampiran
+
+	// Start of lampiran 1 (IKU)
+
+	public function lampiran1()
+	{
+		$where = array(	'tahun'		=> $_SESSION['tahun'] );
+
+		$message = null;
+
+		$save_iku = $this->input->post('save_iku');
+		
+
+		if (isset($save_iku)) {
+			$input = array('sasaran_strategis' => $this->input->post('sasaran_strategis'),
+				'indikator_kinerja'	=> $this->input->post('indikator_kinerja')
+			);
+
+			$where = array('id' => $this->input->post('id') );
+
+			$update = $this->m_submenu->updateIku($input, $where);
+
+			if($update){
+				$message = '<span class="text-success">Data IKU berhasil diubah!</span>';
+			}
+		}
+
+		$save_sub_iku = $this->input->post('save_sub_iku');
+
+		if (isset($save_sub_iku)) {
+			$input = array(	'anggaran' 	=> $this->input->post('anggaran'),
+				'target'	=> $this->input->post('target')
+			);
+
+			$where = array('id' => $this->input->post('id') );
+
+			$update = $this->m_submenu->updateSubIku($input, $where);
+
+			if($update){
+				$message = '<span class="text-success">Data IKU berhasil diubah!</span>';
+			}
+		}
+
+		$data = array(	'title'			=> $this->title,
+			'sidebar'		=> $this->sidebar,
+			'menu'			=> $this->m_menu->menu(),
+			'submenu'		=> $this->m_menu->submenu(),
+			'isi' 			=> 'lampiran/lampiran1/lampiran1',
+			'lampiran1_a'	=> $this->m_submenu->lampiran1_a($where),					
+			'lampiran1_b'	=> $this->m_submenu->lampiran1_b($where),					
+			'lampiran1_c'	=> $this->m_submenu->lampiran1_c($where),					
+			'countIku'		=> $this->m_submenu->countIku(),
+			'message'		=> $message
+
+		);
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function createTableIku()
+	{
+		$cek = $this->m_submenu->countIku();
+
+		$count = $cek->num_rows();
+
+		$message = null;
+
+		if($count > 0){
+			header("Refresh: 1;url=". base_url()."submenu/lampiran1");
+		}
+		else{
+
+			$tahun = $_SESSION['tahun'];
+
+			echo $tahun;
+
+			$iku = $this->m_submenu->insertIku($tahun);
+			$sub_iku = $this->m_submenu->insertSubIku();
+			
+
+			if($iku && $sub_iku){
+				$message = '<span class="text-success">Table berhasil dibuat!</span>';
+			}
+
+		}
+
+		$where = array(	'tahun'		=> $_SESSION['tahun'] );
+
+		$data = array(	'title'		=> $this->title,
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'lampiran/lampiran1/lampiran1',
+			'lampiran1_a'	=> $this->m_submenu->lampiran1_a($where),						
+			'lampiran1_b'	=> $this->m_submenu->lampiran1_b($where),						
+			'lampiran1_c'	=> $this->m_submenu->lampiran1_c($where),						
+			'countIku'	=> $this->m_submenu->countIku(),
+			'message'	=> $message
+		);		
+
+		$this->load->view('layouts/wrapper', $data);
+	}
+
+	public function deleteIku()
+	{
+
+		$where = array(	'tahun'		=> $_SESSION['tahun'] );
+		
+		$id_program = array('id_program' => $this->input->post('id_program') );
+
+		$tahun = $_SESSION['tahun'];
+
+		$delete_iku = $this->m_submenu->deleteIku($tahun);
+
+		foreach ($id_program as $ip) {
+			$delete_sub_iku[] = $this->m_submenu->deleteSubIku($ip);
+		}
+
+		if($delete_sub_iku){
+			$message = '<span class="text-success">IKU berhasil dihapus!</span>';
+		}
+
+		$data = array(	'title'		=> $this->title,
+			'sidebar'	=> $this->sidebar,
+			'menu'		=> $this->m_menu->menu(),
+			'submenu'	=> $this->m_menu->submenu(),
+			'isi' 		=> 'lampiran/lampiran1/lampiran1',
+			'lampiran1_a'	=> $this->m_submenu->lampiran1_a($where),						
+			'lampiran1_b'	=> $this->m_submenu->lampiran1_b($where),						
+			'lampiran1_c'	=> $this->m_submenu->lampiran1_c($where),						
+			'countIku'	=> $this->m_submenu->countIku(),
+			'message'	=> $message,
+		);		
+
+		$this->load->view('layouts/wrapper', $data);
+
+	}
+	// End of lampiran 1 (IKU)
+
+	// End of lampiran
 }

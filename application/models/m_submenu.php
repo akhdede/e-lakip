@@ -385,4 +385,62 @@ class M_submenu extends CI_Model
 	}
 
 	// End model untuk akuntabilitas anggaran
+
+	// Start model untuk lampiran1
+
+	public function lampiran1_a($where) //model untuk sasaran strategis, indikator kinerja, nama program dan total anggaran program
+	{
+		return $this->db->query("SELECT `iku`.`id`,`iku`.`tahun` as `tahun`,`iku`.`sasaran_strategis`,`iku`.`indikator_kinerja`,`iku`.`id_program`,`program`.`nama` as program FROM `iku` JOIN `program` ON `iku`.`id_program`=`program`.`id`");
+	}
+
+	public function lampiran1_b($where) //model untuk target, nama kegiatan, anggaran kegiatan
+	{
+		return $this->db->query("SELECT `iku`.`tahun` as `tahun`,`sub_iku`.`id`,`sub_iku`.`target`,`sub_iku`.`id_iku`,`program`.`nama` as program,`kegiatan`.`nama` AS kegiatan,`sub_iku`.`anggaran` FROM `iku` JOIN `sub_iku` ON `iku`.`id`=`sub_iku`.`id_iku` JOIN `program` ON `program`.`id`=`sub_iku`.`id_program` JOIN `kegiatan` ON `kegiatan`.`id`=`sub_iku`.`id_kegiatan`");
+	}
+
+	public function lampiran1_c($where)
+	{
+		return $this->db->query("SELECT `sub_iku`.`id_program` AS `id_program`, sum(`sub_iku`.`anggaran`) AS `anggaran` FROM `sub_iku` JOIN `iku` ON `sub_iku`.`id_iku`=`iku`.`id` JOIN `program` ON `program`.`id`=`sub_iku`.`id_program` GROUP BY `sub_iku`.`id_program`");
+	}
+
+	public function countIku()
+	{
+		return $this->db->query("SELECT `iku`.`id` FROM `iku` JOIN `sub_iku` ON `iku`.`id`=`sub_iku`.`id_iku`");
+	}
+
+	public function insertIku($tahun)
+	{
+		return $this->db->query("INSERT INTO `iku`(`id_program`, `tahun`) SELECT `program`.`id`, ($tahun) FROM `program`");
+	}
+
+	public function insertSubIku()
+	{
+		return $this->db->query("INSERT INTO `sub_iku`(`id_kegiatan`,`id_program`,`id_iku`) SELECT `kegiatan`.`id` AS `id_kegiatan`, `iku`.`id_program`, `iku`.`id` AS `id_iku` FROM `kegiatan` JOIN `iku` ON `kegiatan`.`id_program`=`iku`.`id_program`");
+	}
+
+	public function updateIku($input, $where)
+	{
+		$this->db->where($where);
+		return $this->db->update('iku', $input);
+	}
+
+	public function updateSubIku($input, $where)
+	{
+		$this->db->where($where);
+		return $this->db->update('sub_iku', $input);
+	}
+
+	public function deleteIku($tahun)
+	{
+		$this->db->where('tahun', $tahun);
+		return $this->db->delete('iku');
+	}
+
+	public function deleteSubIku($id_program)
+	{
+		$this->db->where('id_program', $id_program);
+		return $this->db->delete('sub_iku');
+	}
+
+	// End model untuk lampiran1
 }
